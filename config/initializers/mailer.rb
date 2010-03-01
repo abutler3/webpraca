@@ -8,7 +8,7 @@ if RAILS_ENV != "test" and RAILS_ENV != "cucumber"
   begin
     ActionMailer::Base.smtp_settings = YAML.load_file("#{RAILS_ROOT}/config/mailer.yml")[Rails.env]
   rescue Errno::ENOENT
-    raise "Could not find config/website_config.yml, example is in config/website_config.yml.example"
+    raise "Could not find config/mailer.yml, example is in config/mailer.yml.example"
   end
 
   ActionMailer::Base.smtp_settings[:tsl] = true
